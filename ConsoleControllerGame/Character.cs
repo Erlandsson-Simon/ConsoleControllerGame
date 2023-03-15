@@ -1,39 +1,69 @@
-using System;
-
-namespace ConsoleControllerGame;
-
 public class Character
 {
+    public Vector2 StartingPos { get; set; }
+    public Rectangle rect;
+
     public int Hp { get; set; }
-    public Vector2 Pos { get; set; }
-    public int Speed { get; set; }
+    public float Speed { get; set; }
+    public Vector2 movement;
+
     public Image Sprite { get; set; }
 
+    private static List<Character> allCharacters = new();
 
-    public virtual bool ShouldTakeDamage()
+    public Character()
     {
-        return false;
+        allCharacters.Add(this);
     }
 
-    public int TakeDamage(int Damage)
+    public virtual void Update()
     {
-        Hp -= Damage;
-        return Hp;
+        rect.x += movement.X;
+        rect.y += movement.Y;
     }
 
-    public virtual Vector2 Movement()
+    public virtual void Draw()
     {
-        Vector2 tempVector2 = new(0,0);
 
-        return tempVector2;
     }
 
-    public virtual Vector2 SetSpawnPoint()
+    public static void UpdateAll()
     {
-        Vector2 tempVector2 = new(0,0);
-
-        return tempVector2;
+        foreach (Character c in allCharacters)
+        {
+            c.Update();
+            Console.WriteLine(c.movement);
+        }
     }
+
+    public static void Drawall()
+    {
+        foreach (Character c in allCharacters)
+        {
+            c.Draw();
+        }
+    }
+
+    public virtual void Movement()
+    {
+
+    }
+
+    // public virtual void SetSpawnPoint()
+    // {
+
+    // }
+
+    // public virtual bool ShouldTakeDamage()
+    // {
+    //     return false;
+    // }
+
+    // public int TakeDamage(int Damage)
+    // {
+    //     Hp -= Damage;
+    //     return Hp;
+    // }
 }
 
 
