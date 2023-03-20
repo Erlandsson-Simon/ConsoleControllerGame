@@ -44,15 +44,17 @@ public class Character
         }
     }
 
+    public virtual void SetSpawnPoint()
+    {
+
+    }
+
     public virtual void Movement()
     {
 
     }
 
-    // public virtual void SetSpawnPoint()
-    // {
 
-    // }
 
     // public virtual bool ShouldTakeDamage()
     // {
