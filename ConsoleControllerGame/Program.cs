@@ -14,11 +14,11 @@ while (!R.WindowShouldClose())
 
     Character.Drawall();
 
-    R.ClearBackground(Color.WHITE);
+    R.ClearBackground(Color.LIME);
 
     R.EndMode2D();
     R.EndDrawing();
 
     Character.UpdateAll();
-    
+
 }

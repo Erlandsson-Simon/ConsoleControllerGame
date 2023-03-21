@@ -11,6 +11,8 @@ public class Character
 
     private static List<Character> allCharacters = new();
 
+    public string Facing { get; set; }
+
     public Character()
     {
         allCharacters.Add(this);

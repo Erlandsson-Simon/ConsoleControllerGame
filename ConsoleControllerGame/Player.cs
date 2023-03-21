@@ -1,7 +1,6 @@
 public class Player : Character
 {
     public string whereToStart { get; set; } = "south";
-    // float bounce = 0;
 
     public Player()
     {
@@ -18,7 +17,6 @@ public class Player : Character
 
     public override void Draw()
     {
-        // Rectangle real = new(rect.x, rect.y + bounce % 2, rect.width, rect.height);
         R.DrawRectangleRec(rect, Color.BLUE);
         R.DrawRectangleLinesEx(rect, 3, Color.BLACK);
     }
@@ -47,18 +45,14 @@ public class Player : Character
 
     public override void Movement()
     {
-        // var prev = movement;
         movement.X = Speed * Raylib.GetGamepadAxisMovement(0, GamepadAxis.GAMEPAD_AXIS_LEFT_X);
         movement.Y = Speed * Raylib.GetGamepadAxisMovement(0, GamepadAxis.GAMEPAD_AXIS_LEFT_Y);
-        // if (!(movement == prev)) Bounce();
     }
 
-    // private void Bounce()
-    // {
-    //     bounce += 0.01f;
-    // }
-
-
+    public override void Turning()
+    {
+        movement //math abs
+    }
 
     // public override bool ShouldTakeDamage()
     // {
