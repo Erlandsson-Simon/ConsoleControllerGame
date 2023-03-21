@@ -8,10 +8,12 @@ public class Character
     public Vector2 movement;
 
     public Image Sprite { get; set; }
+    public Vector2 spriteSize;
+    public static Texture2D spriteSheet;
 
     private static List<Character> allCharacters = new();
 
-    public string Facing { get; set; }
+    public string Facing { get; set; } = "idle";
 
     public Character()
     {
@@ -46,12 +48,22 @@ public class Character
         }
     }
 
+    public virtual void Turning()
+    {
+
+    }
+
     public virtual void SetSpawnPoint()
     {
 
     }
 
     public virtual void Movement()
+    {
+
+    }
+
+    public virtual void Sprites()
     {
 
     }

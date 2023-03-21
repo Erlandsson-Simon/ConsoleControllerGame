@@ -5,13 +5,17 @@ public class Player : Character
     public Player()
     {
         SetSpawnPoint();
-        rect = new(StartingPos.X, StartingPos.Y, 50, 50);
+        rect = new(StartingPos.X, StartingPos.Y, 80, 80);
         Speed = 10f;
+        spriteSize = new(80,80);
+        spriteSheet = ;
     }
 
     public override void Update()
     {
         Movement();
+        Turning();
+        Console.WriteLine(Facing);
         base.Update();
     }
 
@@ -51,7 +55,55 @@ public class Player : Character
 
     public override void Turning()
     {
-        movement //math abs
+        float tempX = movement.X;
+        float tempY = movement.Y;
+
+        if (Math.Abs(tempX) > Math.Abs(tempY))
+        {
+            if (tempX > 0)
+            {
+                Facing = "east";
+            }
+            else
+            {
+                Facing = "west";
+            }
+        }
+
+        else if (Math.Abs(tempX) < Math.Abs(tempY))
+
+        {
+            if (tempY > 0)
+            {
+                Facing = "south";
+            }
+            else
+            {
+                Facing = "north";
+            }
+        }
+    }
+
+    public override void Sprites()
+    {
+        switch (Facing)
+        {
+            case "south":
+                Sprite = "";
+                break;
+
+            case "west":
+                Sprite = "";
+                break;
+
+            case "east":
+                Sprite = "";
+                break;
+
+            case "north":
+                Sprite = "";
+                break;
+        }
     }
 
     // public override bool ShouldTakeDamage()
