@@ -20,5 +20,4 @@ while (!R.WindowShouldClose())
     R.EndDrawing();
 
     Character.UpdateAll();
-
 }

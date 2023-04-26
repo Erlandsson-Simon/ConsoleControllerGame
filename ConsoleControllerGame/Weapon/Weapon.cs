@@ -1,4 +1,4 @@
-public class Weapon
+public abstract class Weapon
 {
     public int Damage { get; set; }
     public int SwitchCooldown { get; set; }

@@ -1,14 +1,17 @@
 public class Player : Character
 {
+    public Weapon ChosenWeapon { get; set; }
+
     public string whereToStart { get; set; } = "south";
 
     public Player()
     {
         SetSpawnPoint();
-        rect = new(StartingPos.X, StartingPos.Y, 80, 80);
+        rect = new(StartingPos.X, StartingPos.Y, 50, 50);
         Speed = 10f;
-        spriteSize = new(80,80);
-        spriteSheet = ;
+
+        spriteSize = new(50,50);
+        spriteSheet = ImageLib.PlayerSprite;
     }
 
     public override void Update()
@@ -23,6 +26,9 @@ public class Player : Character
     {
         R.DrawRectangleRec(rect, Color.BLUE);
         R.DrawRectangleLinesEx(rect, 3, Color.BLACK);
+
+        spriteRect = new(spritePos.X, spritePos.Y, spriteSize.X, spriteSize.Y);
+        R.DrawTexturePro(spriteSheet, spriteRect, rect, Vector2.Zero, 0, Color.BLACK);
     }
 
     public override void SetSpawnPoint()
@@ -55,33 +61,7 @@ public class Player : Character
 
     public override void Turning()
     {
-        float tempX = movement.X;
-        float tempY = movement.Y;
-
-        if (Math.Abs(tempX) > Math.Abs(tempY))
-        {
-            if (tempX > 0)
-            {
-                Facing = "east";
-            }
-            else
-            {
-                Facing = "west";
-            }
-        }
-
-        else if (Math.Abs(tempX) < Math.Abs(tempY))
-
-        {
-            if (tempY > 0)
-            {
-                Facing = "south";
-            }
-            else
-            {
-                Facing = "north";
-            }
-        }
+        base.Turning();
     }
 
     public override void Sprites()
@@ -89,19 +69,23 @@ public class Player : Character
         switch (Facing)
         {
             case "south":
-                Sprite = "";
+                spritePos = new(0, 0);
                 break;
 
             case "west":
-                Sprite = "";
+                spritePos = new(0, 0);
                 break;
 
             case "east":
-                Sprite = "";
+                spritePos = new(0, 0);
                 break;
 
             case "north":
-                Sprite = "";
+                spritePos = new(0, 0);
+                break;
+
+            case "idle":
+                spritePos = new(0, 0);
                 break;
         }
     }
