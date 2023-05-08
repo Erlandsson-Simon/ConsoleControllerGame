@@ -15,9 +15,16 @@
       <Entity type="Class">
         <Name>Character</Name>
         <Access>Public</Access>
-        <Location left="103" top="39" />
+        <Location left="103" top="38" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
+        <Member type="Field">public Vector2 movement</Member>
+        <Member type="Field">private static List&lt;Character&gt; allCharacters = new()</Member>
+        <Member type="Property">public int Hp { get; set; }</Member>
+        <Member type="Constructor">public Character()</Member>
+        <Member type="Method">public virtual void Update()</Member>
+        <Member type="Method">public virtual void Draw()</Member>
+        <Member type="Method">public virtual void Sprites(string Facing)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -26,6 +33,8 @@
         <Location left="103" top="339" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
+        <Member type="Method">public override void Sprites(string Facing)</Member>
+        <Member type="Method">public override void Draw()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
